@@ -1,4 +1,13 @@
 """"""""""""""""""""""""""""""
+" => Golang section
+""""""""""""""""""""""""""""""
+""auto mg go file on write"
+au FileType go au BufWritePre <buffer> Fmt
+"auto generate ctags on write "
+au BufWritePost *.go silent! !ctags -R &
+
+
+""""""""""""""""""""""""""""""
 " => Python section
 """"""""""""""""""""""""""""""
 let python_highlight_all = 1

@@ -7,7 +7,7 @@ set nocompatible              " be iMproved, required
 filetype off                  " required
 
 " set the runtime path to include Vundle and initialize
-set rtp+=~/.vim_runtime/bundle/vundle/
+set rtp+=~/.vim/bundle/vundle/
 call vundle#rc()
 " alternatively, pass a path where Vundle should install plugins
 "let path = '~/some/path/here'
@@ -64,12 +64,12 @@ endif
 """"""""""""""""""""""""""""""
 " => Color Schemes
 """"""""""""""""""""""""""""""
-Bundle 'spf13/vim-colors'
-Bundle 'peaksea'  
-Bundle 'altercation/vim-colors-solarized'
-Bundle 'wgibbs/vim-irblack'
-Bundle 'mayansmoke' 
-Bundle 'therubymug/vim-pyte' 
+"Bundle 'spf13/vim-colors'
+"Bundle 'peaksea'  
+"Bundle 'altercation/vim-colors-solarized'
+"Bundle 'wgibbs/vim-irblack'
+"Bundle 'mayansmoke' 
+"Bundle 'therubymug/vim-pyte' 
 
 
 """"""""""""""""""""""""""""""
@@ -77,11 +77,11 @@ Bundle 'therubymug/vim-pyte'
 """"""""""""""""""""""""""""""
 Bundle 'scrooloose/nerdtree'
 Bundle 'tpope/vim-surround'
-Bundle 'spf13/vim-autoclose'
+"Bundle 'spf13/vim-autoclose'
 Bundle 'kien/ctrlp.vim'
 Bundle 'terryma/vim-multiple-cursors'
 Bundle 'vim-scripts/sessionman.vim'
-Bundle 'matchit.zip'
+"Bundle 'matchit.zip'
 
 if (has("python") || has("python3")) && exists('g:spf13_use_powerline') && !exists('g:spf13_use_old_powerline')
     Bundle 'Lokaltog/powerline', {'rtp':'/powerline/bindings/vim'}
@@ -90,22 +90,22 @@ elseif exists('g:spf13_use_powerline') && exists('g:spf13_use_old_powerline')
 else
     Bundle 'bling/vim-airline'
 endif
-Bundle 'bling/vim-bufferline'
+"Bundle 'bling/vim-bufferline'
 Bundle 'Lokaltog/vim-easymotion'
-Bundle 'godlygeek/csapprox'
+"Bundle 'godlygeek/csapprox'
 Bundle 'jistr/vim-nerdtree-tabs'
-Bundle 'flazz/vim-colorschemes'
+"Bundle 'flazz/vim-colorschemes'
 Bundle 'mbbill/undotree'
 Bundle 'nathanaelkane/vim-indent-guides'
 if !exists('g:spf13_no_views')
     Bundle 'vim-scripts/restore_view.vim'
 endif
-Bundle 'mhinz/vim-signify'
-Bundle 'tpope/vim-abolish.git'
-Bundle 'osyo-manga/vim-over'
-Bundle 'justinmk/vim-sneak'
-Bundle 'kana/vim-textobj-user'
-Bundle 'kana/vim-textobj-indent'
+"Bundle 'mhinz/vim-signify'
+"Bundle 'tpope/vim-abolish.git'
+"Bundle 'osyo-manga/vim-over'
+"Bundle 'justinmk/vim-sneak'
+"Bundle 'kana/vim-textobj-user'
+"Bundle 'kana/vim-textobj-indent'
 
 
 """"""""""""""""""""""""""""""
@@ -119,18 +119,18 @@ Bundle 'michaeljsmith/vim-indent-object'
 Bundle 'terryma/vim-expand-region'
 Bundle 'junegunn/goyo.vim'
 Bundle 'vim-zenroom2'
-"Bundle 'amix/vim-commentary'
+Bundle 'amix/vim-commentary'
 "Use the repeat command (.) with supported plugins
-Bundle 'repeat' 
+Bundle 'repeat.vim' 
 
 
 """"""""""""""""""""""""""""""
 " => Writing 
 """"""""""""""""""""""""""""""
-Bundle 'reedes/vim-litecorrect'
-Bundle 'reedes/vim-textobj-sentence'
-Bundle 'reedes/vim-textobj-quote'
-Bundle 'reedes/vim-wordy'
+"Bundle 'reedes/vim-litecorrect'
+"Bundle 'reedes/vim-textobj-sentence'
+"Bundle 'reedes/vim-textobj-quote'
+""Bundle 'reedes/vim-wordy'
 
 
 """"""""""""""""""""""""""""""
@@ -139,10 +139,10 @@ Bundle 'reedes/vim-wordy'
 " Pick one of the checksyntax, jslint, or syntastic
 Bundle 'scrooloose/syntastic'
 Bundle 'tpope/vim-fugitive'
-Bundle 'mattn/webapi-vim'
-Bundle 'mattn/gist-vim'
-Bundle 'scrooloose/nerdcommenter'
-Bundle 'godlygeek/tabular'
+"Bundle 'mattn/webapi-vim'
+"Bundle 'mattn/gist-vim'
+"Bundle 'scrooloose/nerdcommenter'
+"Bundle 'godlygeek/tabular'
 if executable('ctags')
     Bundle 'majutsushi/tagbar'
 endif
@@ -200,7 +200,7 @@ Bundle 'briancollins/vim-jst'
 " => HTML plugin
 """"""""""""""""""""""""""""""
 Bundle 'amirh/HTML-AutoCloseTag'
-Bundle 'hail2u/vim-css3-syntax'
+"Bundle 'hail2u/vim-css3-syntax'
 Bundle 'gorodinskiy/vim-coloresque'
 "Bundle 'tpope/vim-haml'
 
@@ -208,6 +208,8 @@ Bundle 'gorodinskiy/vim-coloresque'
 """"""""""""""""""""""""""""""
 " => GoLang plugin
 """"""""""""""""""""""""""""""
+Bundle 'dgryski/vim-godef'
+Bundle 'bradfitz/goimports'
 Bundle 'Blackrush/vim-gocode'
 Bundle 'fatih/vim-go'
 

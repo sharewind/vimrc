@@ -8,9 +8,9 @@
 """"""""""""""""""""""""""""""
 " => Load pathogen paths
 """"""""""""""""""""""""""""""
-call pathogen#infect('~/.vim_runtime/sources_forked/{}')
-call pathogen#infect('~/.vim_runtime/sources_non_forked/{}')
-call pathogen#helptags()
+"call pathogen#infect('~/.vim_runtime/sources_forked/{}')
+"call pathogen#infect('~/.vim_runtime/sources_non_forked/{}')
+"call pathogen#helptags()
 
 """"""""""""""""""""""""""""""
 " => bufExplorer plugin
@@ -62,7 +62,7 @@ map <leader>j :PeepOpen<cr>
 " => ZenCoding
 """"""""""""""""""""""""""""""
 " Enable all functions in all modes
-let g:user_zen_mode='a'
+"let g:user_zen_mode='a'
 
 
 """"""""""""""""""""""""""""""

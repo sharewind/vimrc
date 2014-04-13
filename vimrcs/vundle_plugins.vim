@@ -42,6 +42,7 @@ Plugin 'gmarik/vundle'
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 if !exists('g:spf13_bundle_groups')
     let g:spf13_bundle_groups=['general', 'writing', 'neocomplcache', 'programming', 'php', 'ruby', 'python', 'twig', 'javascript', 'html', 'misc',]
+    " let g:spf13_use_powerline=['use']
 endif
 
 
@@ -118,10 +119,16 @@ Bundle 'amix/open_file_under_cursor.vim'
 Bundle 'michaeljsmith/vim-indent-object'
 Bundle 'terryma/vim-expand-region'
 Bundle 'junegunn/goyo.vim'
-Bundle 'vim-zenroom2'
-Bundle 'amix/vim-commentary'
+Bundle 'amix/vim-zenroom2'
+Bundle 'tpope/vim-commentary'
 "Use the repeat command (.) with supported plugins
 Bundle 'repeat.vim' 
+
+
+""""""""""""""""""""""""""""""
+" => Others 
+""""""""""""""""""""""""""""""
+Bundle 'Conque-Shell'
 
 
 """"""""""""""""""""""""""""""
@@ -164,13 +171,13 @@ elseif count(g:spf13_bundle_groups, 'youcompleteme')
     Bundle 'SirVer/ultisnips'
     Bundle 'honza/vim-snippets'
 elseif count(g:spf13_bundle_groups, 'neocomplcache')
-    Bundle 'Shougo/neocomplcache'
-    Bundle 'Shougo/neosnippet'
+    Bundle 'Shougo/neocomplcache.vim'
+    Bundle 'Shougo/neosnippet.vim'
     Bundle 'Shougo/neosnippet-snippets'
     Bundle 'honza/vim-snippets'
 elseif count(g:spf13_bundle_groups, 'neocomplete')
-    Bundle 'Shougo/neocomplete.vim.git'
-    Bundle 'Shougo/neosnippet'
+    Bundle 'Shougo/neocomplete.vim'
+    Bundle 'Shougo/neosnippet.vim'
     Bundle 'Shougo/neosnippet-snippets'
     Bundle 'honza/vim-snippets'
 endif
@@ -211,7 +218,8 @@ Bundle 'gorodinskiy/vim-coloresque'
 Bundle 'dgryski/vim-godef'
 Bundle 'bradfitz/goimports'
 Bundle 'Blackrush/vim-gocode'
-Bundle 'fatih/vim-go'
+"Bundle 'fatih/vim-go'
+"Bundle 'rjohnsondev/vim-compiler-go'
 
 
 """"""""""""""""""""""""""""""

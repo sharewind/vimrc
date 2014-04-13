@@ -92,6 +92,9 @@ set number
 " Height of the command bar
 set cmdheight=2
 
+" Always show cmd 
+set showcmd
+
 " A buffer becomes hidden when it is abandoned
 set hid
 
@@ -131,6 +134,9 @@ set tm=500
 " Add a bit extra margin to the left
 set foldcolumn=1
 
+" disable auto fold 
+set foldlevel=100
+
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Colors and Fonts
@@ -138,10 +144,10 @@ set foldcolumn=1
 " Enable syntax highlighting
 syntax enable 
 
-try
-    colorscheme desert
-catch
-endtry
+" try
+"     colorscheme desert
+" catch
+" endtry
 
 set background=dark
 

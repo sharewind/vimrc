@@ -159,7 +159,7 @@ Bundle 'taglist.vim'
 """"""""""""""""""""""""""""""
 " => Snippets & AutoComplete 
 """"""""""""""""""""""""""""""
-Bundle 'ervandew/supertab'
+" Bundle 'ervandew/supertab'
 if count(g:spf13_bundle_groups, 'snipmate')
     Bundle 'garbas/vim-snipmate'
     Bundle 'honza/vim-snippets'

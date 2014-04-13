@@ -169,7 +169,20 @@ let Tlist_Use_Right_Window = 1
 " => NeoComplcache
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 let g:neocomplcache_enable_at_startup=1   
-let g:neocomplcache_enable_auto_select=1
+" let g:neocomplcache_enable_auto_select=1
+let g:neoComplcache_disableautocomplete=1
+"let g:neocomplcache_enable_underbar_completion = 1
+""let g:neocomplcache_enable_camel_case_completion = 1
 let g:neocomplcache_enable_smart_case=1
+let g:neocomplcache_min_syntax_length = 3
+let g:neocomplcache_lock_buffer_name_pattern = '\*ku\*'
+set completeopt-=preview
 
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => SuperTab 
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+let g:SuperTabDefultCompletionType='context'
+let g:SuperTabDefaultCompletionType = '<C-X><C-O>'
+let g:SuperTabRetainCompletionType=2
 

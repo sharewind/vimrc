@@ -159,6 +159,7 @@ Bundle 'taglist.vim'
 """"""""""""""""""""""""""""""
 " => Snippets & AutoComplete 
 """"""""""""""""""""""""""""""
+Bundle 'ervandew/supertab'
 if count(g:spf13_bundle_groups, 'snipmate')
     Bundle 'garbas/vim-snipmate'
     Bundle 'honza/vim-snippets'
@@ -215,9 +216,10 @@ Bundle 'gorodinskiy/vim-coloresque'
 """"""""""""""""""""""""""""""
 " => GoLang plugin
 """"""""""""""""""""""""""""""
-Bundle 'dgryski/vim-godef'
 Bundle 'bradfitz/goimports'
+Bundle 'dgryski/vim-godef'
 Bundle 'Blackrush/vim-gocode'
+Bundle 'cespare/vim-golang'
 "Bundle 'fatih/vim-go'
 "Bundle 'rjohnsondev/vim-compiler-go'
 

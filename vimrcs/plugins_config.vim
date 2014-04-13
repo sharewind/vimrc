@@ -274,7 +274,11 @@ inoremap <expr><Space> pumvisible() ? neocomplcache#close_popup() : "\<Space>"
 " AutoComplPop like behavior.
 "let g:neocomplcache_enable_auto_select = 1
 
+" Disable the neosnippet preview candidate window  
+" When enabled, there can be too much visual noise  
+" especially when splits are used. 
 set completeopt-=preview
+
 " Shell like behavior(not recommended).
 "set completeopt+=longest
 "let g:neocomplcache_enable_auto_select = 1

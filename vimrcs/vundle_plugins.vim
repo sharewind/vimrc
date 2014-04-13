@@ -78,11 +78,11 @@ endif
 """"""""""""""""""""""""""""""
 Bundle 'scrooloose/nerdtree'
 Bundle 'tpope/vim-surround'
-"Bundle 'spf13/vim-autoclose'
+Bundle 'spf13/vim-autoclose'
 Bundle 'kien/ctrlp.vim'
 Bundle 'terryma/vim-multiple-cursors'
 Bundle 'vim-scripts/sessionman.vim'
-"Bundle 'matchit.zip'
+Bundle 'matchit.zip'
 
 if (has("python") || has("python3")) && exists('g:spf13_use_powerline') && !exists('g:spf13_use_old_powerline')
     Bundle 'Lokaltog/powerline', {'rtp':'/powerline/bindings/vim'}
@@ -137,7 +137,7 @@ Bundle 'Conque-Shell'
 "Bundle 'reedes/vim-litecorrect'
 "Bundle 'reedes/vim-textobj-sentence'
 "Bundle 'reedes/vim-textobj-quote'
-""Bundle 'reedes/vim-wordy'
+"Bundle 'reedes/vim-wordy'
 
 
 """"""""""""""""""""""""""""""

@@ -234,6 +234,7 @@ Bundle 'sophacles/vim-bundle-mako'
 "Bundle 'tpope/vim-cucumber'
 "Bundle 'quentindecock/vim-cucumber-align-pipes'
 "Bundle 'Puppet-Syntax-Highlighting'
+Bundle 'vimtips.zip'
 
 """"""""""""""""""""""""""""""
 " => plugin End!

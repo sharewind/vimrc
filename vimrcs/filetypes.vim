@@ -76,7 +76,7 @@ au FileType coffee call CoffeeScriptFold()
 " => Dash section
 """""""""""""""""""""""""""""""
 let g:dash_map = {
-        \ 'go'       : 'golang',
+        \ 'go'       : 'go',
         \ 'ruby'       : 'rails',
         \ 'python'     : 'python2',
         \ 'javascript' : 'backbone'

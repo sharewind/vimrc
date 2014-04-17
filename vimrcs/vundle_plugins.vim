@@ -65,12 +65,12 @@ endif
 """"""""""""""""""""""""""""""
 " => Color Schemes
 """"""""""""""""""""""""""""""
-"Bundle 'spf13/vim-colors'
-"Bundle 'peaksea'  
-"Bundle 'altercation/vim-colors-solarized'
-"Bundle 'wgibbs/vim-irblack'
-"Bundle 'mayansmoke' 
-"Bundle 'therubymug/vim-pyte' 
+Bundle 'spf13/vim-colors'
+Bundle 'peaksea'  
+Bundle 'altercation/vim-colors-solarized'
+Bundle 'wgibbs/vim-irblack'
+Bundle 'mayansmoke' 
+Bundle 'therubymug/vim-pyte' 
 
 
 """"""""""""""""""""""""""""""
@@ -120,8 +120,8 @@ Bundle 'michaeljsmith/vim-indent-object'
 Bundle 'terryma/vim-expand-region'
 Bundle 'junegunn/goyo.vim'
 Bundle 'amix/vim-zenroom2'
-Bundle 'tpope/vim-commentary'
-"Use the repeat command (.) with supported plugins
+" Bundle 'tpope/vim-commentary'
+" Use the repeat command (.) with supported plugins
 Bundle 'repeat.vim' 
 
 
@@ -146,10 +146,10 @@ Bundle 'Conque-Shell'
 " Pick one of the checksyntax, jslint, or syntastic
 Bundle 'scrooloose/syntastic'
 Bundle 'tpope/vim-fugitive'
-"Bundle 'mattn/webapi-vim'
-"Bundle 'mattn/gist-vim'
-"Bundle 'scrooloose/nerdcommenter'
-"Bundle 'godlygeek/tabular'
+" Bundle 'mattn/webapi-vim'
+" Bundle 'mattn/gist-vim'
+Bundle 'scrooloose/nerdcommenter'
+" Bundle 'godlygeek/tabular'
 if executable('ctags')
     Bundle 'majutsushi/tagbar'
 endif

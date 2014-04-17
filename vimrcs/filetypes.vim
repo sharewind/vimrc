@@ -70,3 +70,19 @@ function! CoffeeScriptFold()
     setl foldlevelstart=1
 endfunction
 au FileType coffee call CoffeeScriptFold()
+
+
+""""""""""""""""""""""""""""""
+" => Dash section
+"""""""""""""""""""""""""""""""
+let g:dash_map = {
+        \ 'go'       : 'golang',
+        \ 'ruby'       : 'rails',
+        \ 'python'     : 'python2',
+        \ 'javascript' : 'backbone'
+        \ }
+:nmap <silent> <leader>d <Plug>DashSearch
+
+
+
+

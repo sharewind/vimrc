@@ -237,6 +237,12 @@ Bundle 'sophacles/vim-bundle-mako'
 Bundle 'vimtips.zip'
 
 """"""""""""""""""""""""""""""
+" => Dash docs
+""""""""""""""""""""""""""""""
+Bundle 'rizzatti/funcoo.vim'
+Bundle 'rizzatti/dash.vim'
+
+""""""""""""""""""""""""""""""
 " => plugin End!
 """"""""""""""""""""""""""""""
 

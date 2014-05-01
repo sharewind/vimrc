@@ -27,7 +27,7 @@ map <leader>o :BufExplorer<cr>
 """"""""""""""""""""""""""""""
 let MRU_Use_Current_Window = 1
 let MRU_Max_Entries = 400
-map <leader>f :MRU<CR>
+" map <leader>f :MRU<CR>
 
 
 """"""""""""""""""""""""""""""
@@ -48,6 +48,7 @@ let g:ctrlp_working_path_mode = 0
 let g:ctrlp_map = '<c-f>'
 map <c-b> :CtrlPBuffer<cr>
 map <leader>mf :CtrlPMRUFiles<cr>
+map <leader>f  :CtrlP<cr>
 
 let g:ctrlp_max_height = 20
 let g:ctrlp_custom_ignore = 'node_modules\|^\.DS_Store\|^\.git\|^\.coffee'

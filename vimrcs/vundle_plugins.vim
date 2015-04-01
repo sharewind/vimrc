@@ -119,7 +119,7 @@ Bundle 'amix/open_file_under_cursor.vim'
 Bundle 'michaeljsmith/vim-indent-object'
 Bundle 'terryma/vim-expand-region'
 Bundle 'junegunn/goyo.vim'
-Bundle 'amix/vim-zenroom2'
+" Bundle 'amix/vim-zenroom2'
 Bundle 'tpope/vim-commentary'
 " Use the repeat command (.) with supported plugins
 Bundle 'repeat.vim' 

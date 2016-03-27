@@ -44,7 +44,7 @@
 " => General
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Sets how many lines of history VIM has to remember
-set history=700
+set history=500
 
 " Enable filetype plugins
 filetype plugin on
@@ -179,7 +179,7 @@ set nowb
 " => Text, tab and indent related
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Use spaces instead of tabs
-" set expandtab
+set expandtab
 
 " Be smart when using tabs ;)
 set smarttab
@@ -227,19 +227,26 @@ map <C-h> <C-W>h
 map <C-l> <C-W>l
 
 " Close the current buffer
-map <leader>bd :Bclose<cr>
+map <leader>bd :Bclose<cr>:tabclose<cr>gT
 
 " Close all the buffers
-map <leader>ba :1,1000 bd!<cr>
+map <leader>ba :bufdo bd<cr>
+
+map <leader>l :bnext<cr>
+map <leader>h :bprevious<cr>
 
 " Useful mappings for managing tabs
 map <leader>tn :tabnew<cr>
 map <leader>to :tabonly<cr>
 map <leader>tc :tabclose<cr>
-map <leader>tm :tabmove<cr> 
-map <leader>tn :tabnext<cr> 
-map <leader>tp :tabprevious<cr> 
-map <leader>t<leader> :tabnext<cr>
+map <leader>tm :tabmove 
+map <leader>t<leader> :tabnext 
+
+" Let 'tl' toggle between this and the last accessed tab
+let g:lasttab = 1
+nmap <Leader>tl :exe "tabn ".g:lasttab<CR>
+au TabLeave * let g:lasttab = tabpagenr()
+
 
 " Opens a new tab with the current buffer's path
 " Super useful when editing files in the same directory
@@ -256,12 +263,12 @@ catch
 endtry
 
 " Return to last edit position when opening files (You want this!)
-autocmd BufReadPost *
-     \ if line("'\"") > 0 && line("'\"") <= line("$") |
-     \   exe "normal! g`\"" |
-     \ endif
+" autocmd BufReadPost *
+"      \ if line("'\"") > 0 && line("'\"") <= line("$") |
+"      \   exe "normal! g`\"" |
+"      \ endif
 " Remember info about open buffers on close
-set viminfo^=%
+" set viminfo^=%
 
 
 """"""""""""""""""""""""""""""
@@ -304,21 +311,21 @@ autocmd BufWrite *.coffee :call DeleteTrailingWS()
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" => Ack searching and cope displaying
-"    requires ack.vim - it's much better than vimgrep/grep
+" => Ag searching and cope displaying
+"    requires ag.vim - it's much better than vimgrep/grep
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" When you press gv you Ack after the selected text
+" When you press gv you Ag after the selected text
 vnoremap <silent> gv :call VisualSelection('gv', '')<CR>
 
-" Open Ack and put the cursor in the right position
-map <leader>g :Ack 
+" Open Ag and put the cursor in the right position
+map <leader>g :Ag 
 
 " When you press <leader>r you can search and replace the selected text
 vnoremap <silent> <leader>r :call VisualSelection('replace', '')<CR>
 
 " Do :help cope if you are unsure what cope is. It's super useful!
 "
-" When you search with Ack, display your results in cope by doing:
+" When you search with Ag, display your results in cope by doing:
 "   <leader>cc
 "
 " To go to the next search result do:
@@ -364,6 +371,7 @@ map <leader>pp :setlocal paste!<cr>
 
 
 
+
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Helper functions
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -383,7 +391,7 @@ function! VisualSelection(direction, extra_filter) range
     if a:direction == 'b'
         execute "normal ?" . l:pattern . "^M"
     elseif a:direction == 'gv'
-        call CmdLine("Ack \"" . l:pattern . "\" " )
+        call CmdLine("Ag \"" . l:pattern . "\" " )
     elseif a:direction == 'replace'
         call CmdLine("%s" . '/'. l:pattern . '/')
     elseif a:direction == 'f'
@@ -399,7 +407,7 @@ endfunction
 function! HasPaste()
     if &paste
         return 'PASTE MODE  '
-    en
+    endif
     return ''
 endfunction
 
@@ -423,3 +431,8 @@ function! <SID>BufcloseCloseIt()
      execute("bdelete! ".l:currentBufNum)
    endif
 endfunction
+
+" Make VIM remember position in file after reopen
+if has("autocmd")
+   au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
+endif

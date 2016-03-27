@@ -71,8 +71,8 @@ map <leader>j :PeepOpen<cr>
 """"""""""""""""""""""""""""""
 " => snipMate (beside <TAB> support <CTRL-j>)
 """"""""""""""""""""""""""""""
-ino <c-j> <c-r>=snipMate#TriggerSnippet()<cr>
-snor <c-j> <esc>i<right><c-r>=snipMate#TriggerSnippet()<cr>
+" ino <c-j> <c-r>=snipMate#TriggerSnippet()<cr>
+" snor <c-j> <esc>i<right><c-r>=snipMate#TriggerSnippet()<cr>
 
 
 """"""""""""""""""""""""""""""
@@ -197,35 +197,79 @@ nmap <leader>sc :SessionClose<CR>
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => YouCompleteMe 
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+if count(g:spf13_bundle_groups, 'youcompleteme')
+            let g:acp_enableAtStartup = 0
+
+            " enable completion from tags
+            let g:ycm_collect_identifiers_from_tags_files = 1
+
+            " remap Ultisnips for compatibility for YCM
+            let g:UltiSnipsExpandTrigger = '<C-j>'
+            let g:UltiSnipsJumpForwardTrigger = '<C-j>'
+            let g:UltiSnipsJumpBackwardTrigger = '<C-k>'
+
+            " Enable omni completion.
+            autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
+            autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
+            autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
+            autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
+            autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
+            autocmd FileType ruby setlocal omnifunc=rubycomplete#Complete
+            autocmd FileType haskell setlocal omnifunc=necoghc#omnifunc
+
+            " Haskell post write lint and check with ghcmod
+            " $ `cabal install ghcmod` if missing and ensure
+            " ~/.cabal/bin is in your $PATH.
+            if !executable("ghcmod")
+                autocmd BufWritePost *.hs GhcModCheckAndLintAsync
+            endif
+
+            " For snippet_complete marker.
+            if !exists("g:spf13_no_conceal")
+                if has('conceal')
+                    set conceallevel=2 concealcursor=i
+                endif
+            endif
+
+            " Disable the neosnippet preview candidate window
+            " When enabled, there can be too much visual noise
+            " especially when splits are used.
+            set completeopt-=preview
+        endif
+
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => SuperTab 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-let g:SuperTabDefultCompletionType='context'
-let g:SuperTabDefaultCompletionType = '<C-X><C-O>'
-let g:SuperTabRetainCompletionType=2
+" let g:SuperTabDefultCompletionType='context'
+" let g:SuperTabDefaultCompletionType = '<C-X><C-O>'
+" let g:SuperTabRetainCompletionType=2
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => NeoComplcache
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Disable AutoComplPop.
-let g:acp_enableAtStartup = 0
+" let g:acp_enableAtStartup = 0
 " Use neocomplcache.
-let g:neocomplcache_enable_at_startup = 1
+" let g:neocomplcache_enable_at_startup = 1
 " Use smartcase.
-let g:neocomplcache_enable_smart_case = 1
+" let g:neocomplcache_enable_smart_case = 1
 " Set minimum syntax keyword length.
-let g:neocomplcache_min_syntax_length = 3
-let g:neocomplcache_lock_buffer_name_pattern = '\*ku\*'
+" let g:neocomplcache_min_syntax_length = 3
+" let g:neocomplcache_lock_buffer_name_pattern = '\*ku\*'
 
 " Enable heavy features.
 " Use camel case completion.
-let g:neocomplcache_enable_camel_case_completion = 1
+" let g:neocomplcache_enable_camel_case_completion = 1
 " Use underbar completion.
-let g:neocomplcache_enable_underbar_completion = 1
+" let g:neocomplcache_enable_underbar_completion = 1
 
-let g:neocomplcache_enable_auto_delimiter = 1
-let g:neocomplcache_max_list = 15
-let g:neocomplcache_force_overwrite_completefunc = 1
+" let g:neocomplcache_enable_auto_delimiter = 1
+" let g:neocomplcache_max_list = 15
+" let g:neocomplcache_force_overwrite_completefunc = 1
 
 " Define dictionary.
 " let g:neocomplcache_dictionary_filetype_lists = {
@@ -235,54 +279,54 @@ let g:neocomplcache_force_overwrite_completefunc = 1
         " \ }
 
 " Define keyword.
-if !exists('g:neocomplcache_keyword_patterns')
-    let g:neocomplcache_keyword_patterns = {}
-endif
-let g:neocomplcache_keyword_patterns['default'] = '\h\w*'
+" if !exists('g:neocomplcache_keyword_patterns')
+"     let g:neocomplcache_keyword_patterns = {}
+" endif
+" let g:neocomplcache_keyword_patterns['default'] = '\h\w*'
 
 " These two lines conflict with the default digraph mapping of <C-K>
-imap <C-k> <Plug>(neosnippet_expand_or_jump)
-smap <C-k> <Plug>(neosnippet_expand_or_jump)"
+" imap <C-k> <Plug>(neosnippet_expand_or_jump)
+" smap <C-k> <Plug>(neosnippet_expand_or_jump)"
 
-imap <silent><expr><C-k> neosnippet#expandable() ?
-            \ "\<Plug>(neosnippet_expand_or_jump)" : (pumvisible() ?
-            \ "\<C-e>" : "\<Plug>(neosnippet_expand_or_jump)")
-smap <TAB> <Right><Plug>(neosnippet_jump_or_expand)
+" imap <silent><expr><C-k> neosnippet#expandable() ?
+"             \ "\<Plug>(neosnippet_expand_or_jump)" : (pumvisible() ?
+"             \ "\<C-e>" : "\<Plug>(neosnippet_expand_or_jump)")
+" smap <TAB> <Right><Plug>(neosnippet_jump_or_expand)
 
-inoremap <expr><C-g> neocomplcache#undo_completion()
-inoremap <expr><C-l> neocomplcache#complete_common_string()
-"inoremap <expr><CR> neocomplcache#complete_common_string()
+" inoremap <expr><C-g> neocomplcache#undo_completion()
+" inoremap <expr><C-l> neocomplcache#complete_common_string()
+" "inoremap <expr><CR> neocomplcache#complete_common_string()
 
-function! CleverCr()
-    if pumvisible()
-        if neosnippet#expandable()
-            let exp = "\<Plug>(neosnippet_expand)"
-            return exp . neocomplcache#close_popup()
-        else
-            return neocomplcache#close_popup()
-        endif
-    else
-        return "\<CR>"
-    endif
-endfunction
+" function! CleverCr()
+"     if pumvisible()
+"         if neosnippet#expandable()
+"             let exp = "\<Plug>(neosnippet_expand)"
+"             return exp . neocomplcache#close_popup()
+"         else
+"             return neocomplcache#close_popup()
+"         endif
+"     else
+"         return "\<CR>"
+"     endif
+" endfunction
 
-" <CR> close popup and save indent or expand snippet 
-imap <expr> <CR> CleverCr()
+" " <CR> close popup and save indent or expand snippet 
+" imap <expr> <CR> CleverCr()
 
 " <CR>: close popup
 " <s-CR>: close popup and save indent.
-inoremap <expr><s-CR> pumvisible() ? neocomplcache#close_popup()"\<CR>" : "\<CR>"
+" inoremap <expr><s-CR> pumvisible() ? neocomplcache#close_popup()"\<CR>" : "\<CR>"
 "inoremap <expr><CR> pumvisible() ? neocomplcache#close_popup() : "\<CR>"
 
 " <C-h>, <BS>: close popup and delete backword char.
-inoremap <expr><BS> neocomplcache#smart_close_popup()."\<C-h>"
-inoremap <expr><C-y> neocomplcache#close_popup()
-" <TAB>: completion.
-inoremap <expr><TAB> pumvisible() ? "\<C-n>" : "\<TAB>"
-inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<TAB>"
+" inoremap <expr><BS> neocomplcache#smart_close_popup()."\<C-h>"
+" inoremap <expr><C-y> neocomplcache#close_popup()
+" " <TAB>: completion.
+" inoremap <expr><TAB> pumvisible() ? "\<C-n>" : "\<TAB>"
+" inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<TAB>"
 
-" Close popup by <Space>.
-inoremap <expr><Space> pumvisible() ? neocomplcache#close_popup() : "\<Space>"
+" " Close popup by <Space>.
+" inoremap <expr><Space> pumvisible() ? neocomplcache#close_popup() : "\<Space>"
 
 " For cursor moving in insert mode(Not recommended)
 "inoremap <expr><Left>  neocomplcache#close_popup() . "\<Left>"
@@ -300,7 +344,7 @@ inoremap <expr><Space> pumvisible() ? neocomplcache#close_popup() : "\<Space>"
 " Disable the neosnippet preview candidate window  
 " When enabled, there can be too much visual noise  
 " especially when splits are used. 
-set completeopt-=preview
+" set completeopt-=preview
 
 " Shell like behavior(not recommended).
 "set completeopt+=longest
@@ -309,45 +353,57 @@ set completeopt-=preview
 "inoremap <expr><TAB>  pumvisible() ? "\<Down>" : "\<C-x>\<C-u>"
 
 " Enable omni completion.
-autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
-autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
-autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
-autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
-autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
+" autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
+" autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
+" autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
+" autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
+" autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
 
-" Enable heavy omni completion.
-if !exists('g:neocomplcache_omni_patterns')
-  let g:neocomplcache_omni_patterns = {}
-endif
-" let g:neocomplcache_omni_patterns.php = '[^. \t]->\h\w*\|\h\w*::'
-let g:neocomplcache_omni_patterns.c = '[^.[:digit:] *\t]\%(\.\|->\)'
-let g:neocomplcache_omni_patterns.cpp = '[^.[:digit:] *\t]\%(\.\|->\)\|\h\w*::'
-let g:neocomplcache_omni_patterns.go = '\h\w*\.'
+" " Enable heavy omni completion.
+" if !exists('g:neocomplcache_omni_patterns')
+"   let g:neocomplcache_omni_patterns = {}
+" endif
+" " let g:neocomplcache_omni_patterns.php = '[^. \t]->\h\w*\|\h\w*::'
+" let g:neocomplcache_omni_patterns.c = '[^.[:digit:] *\t]\%(\.\|->\)'
+" let g:neocomplcache_omni_patterns.cpp = '[^.[:digit:] *\t]\%(\.\|->\)\|\h\w*::'
+" let g:neocomplcache_omni_patterns.go = '\h\w*\.'
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Snippets
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
  " Use honza's snippets.
-let g:neosnippet#snippets_directory='~/.vim/bundle/vim-snippets/snippets'
+" let g:neosnippet#snippets_directory='~/.vim/bundle/vim-snippets/snippets'
 
-" Enable neosnippet snipmate compatibility mode
-let g:neosnippet#enable_snipmate_compatibility = 1
+" " Enable neosnippet snipmate compatibility mode
+" let g:neosnippet#enable_snipmate_compatibility = 1
 
-" For snippet_complete marker.
-if !exists("g:spf13_no_conceal")
-    if has('conceal')
-        set conceallevel=2 concealcursor=i
-    endif
-endif
+" " For snippet_complete marker.
+" if !exists("g:spf13_no_conceal")
+"     if has('conceal')
+"         set conceallevel=2 concealcursor=i
+"     endif
+" endif
 
-" Enable neosnippets when using go
-let g:go_snippet_engine = "neosnippet"
+" " Enable neosnippets when using go
+" let g:go_snippet_engine = "neosnippet"
 
-" Disable the neosnippet preview candidate window
-" When enabled, there can be too much visual noise
-" especially when splits are used.
-set completeopt-=preview
+" " Disable the neosnippet preview candidate window
+" " When enabled, there can be too much visual noise
+" " especially when splits are used.
+" set completeopt-=preview
+
+
+""""""""""""""""""""""""""""""
+" => Dash section
+"""""""""""""""""""""""""""""""
+let g:dash_map = {
+        \ 'go'       : 'go',
+        \ 'ruby'       : 'rails',
+        \ 'python'     : 'python2',
+        \ 'javascript' : 'backbone'
+        \ }
+:nmap <silent> <leader>d <Plug>DashSearch
 
 
 

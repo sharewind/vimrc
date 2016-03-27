@@ -70,4 +70,11 @@ function! CoffeeScriptFold()
 endfunction
 au FileType coffee call CoffeeScriptFold()
 
+
+""""""""""""""""""""""""""""""
+" => Git Commit Msg
+"""""""""""""""""""""""""""""""
+" Instead of reverting the cursor to the last position in the buffer, we
+" set it to the first line when editing a git commit message
 au FileType gitcommit call setpos('.', [0, 1, 1, 0])
+

@@ -41,7 +41,8 @@ Plugin 'gmarik/vundle'
 "
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 if !exists('g:spf13_bundle_groups')
-    let g:spf13_bundle_groups=['general', 'writing', 'neocomplcache', 'programming', 'php', 'ruby', 'python', 'twig', 'javascript', 'html', 'misc',]
+    " let g:spf13_bundle_groups=['general', 'writing', 'neocomplcache', 'programming', 'php', 'ruby', 'python', 'twig', 'javascript', 'html', 'misc',]
+    let g:spf13_bundle_groups=['general', 'writing', 'youcompleteme', 'programming', 'php', 'ruby', 'python', 'twig', 'javascript', 'html', 'misc',]
     " let g:spf13_use_powerline=['use']
 endif
 
@@ -71,6 +72,7 @@ Bundle 'altercation/vim-colors-solarized'
 Bundle 'wgibbs/vim-irblack'
 Bundle 'mayansmoke' 
 Bundle 'therubymug/vim-pyte' 
+Bundle 'sickill/vim-monokai'
 
 
 """"""""""""""""""""""""""""""
@@ -189,7 +191,7 @@ endif
 """"""""""""""""""""""""""""""
 " Pick either python-mode or pyflakes & pydoc
 Bundle 'klen/python-mode'
-Bundle 'python.vim'
+Bundle 'yssource/python.vim'
 Bundle 'python_match.vim'
 Bundle 'pythoncomplete'
 
@@ -216,12 +218,10 @@ Bundle 'gorodinskiy/vim-coloresque'
 """"""""""""""""""""""""""""""
 " => GoLang plugin
 """"""""""""""""""""""""""""""
-Bundle 'bradfitz/goimports'
-Bundle 'dgryski/vim-godef'
-Bundle 'Blackrush/vim-gocode'
-Bundle 'cespare/vim-golang'
-"Bundle 'fatih/vim-go'
-"Bundle 'rjohnsondev/vim-compiler-go'
+if count(g:spf13_bundle_groups, 'go')
+	"Bundle 'Blackrush/vim-gocode'
+	Bundle 'fatih/vim-go'
+endif
 
 
 """"""""""""""""""""""""""""""
@@ -236,11 +236,13 @@ Bundle 'sophacles/vim-bundle-mako'
 "Bundle 'Puppet-Syntax-Highlighting'
 " Bundle 'vimtips.zip'
 
+
 """"""""""""""""""""""""""""""
 " => Dash docs
 """"""""""""""""""""""""""""""
 Bundle 'rizzatti/funcoo.vim'
 Bundle 'rizzatti/dash.vim'
+
 
 """"""""""""""""""""""""""""""
 " => plugin End!

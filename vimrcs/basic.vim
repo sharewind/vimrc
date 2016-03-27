@@ -172,7 +172,7 @@ set ffs=unix,dos,mac
 " Turn backup off, since most stuff is in SVN, git et.c anyway...
 set nobackup
 set nowb
-set noswapfile
+" set noswapfile
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -236,7 +236,9 @@ map <leader>ba :1,1000 bd!<cr>
 map <leader>tn :tabnew<cr>
 map <leader>to :tabonly<cr>
 map <leader>tc :tabclose<cr>
-map <leader>tm :tabmove 
+map <leader>tm :tabmove<cr> 
+map <leader>tn :tabnext<cr> 
+map <leader>tp :tabprevious<cr> 
 map <leader>t<leader> :tabnext<cr>
 
 " Opens a new tab with the current buffer's path

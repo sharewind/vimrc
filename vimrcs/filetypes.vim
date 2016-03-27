@@ -1,7 +1,7 @@
 """"""""""""""""""""""""""""""
 " => Golang section
 """"""""""""""""""""""""""""""
-""auto mg go file on write"
+""auto fmt go file on write"
 au FileType go au BufWritePre <buffer> Fmt
 "auto generate ctags on write "
 " au BufWritePost *.go silent! !/usr/local/Cellar/ctags/5.8/bin/ctags -R &
@@ -11,9 +11,8 @@ let g:godef_same_file_in_same_window=1
 
 " make auto compiler
 "autocmd FileType go compiler golang
-"let g:golang_goroot = "/opt/apps/go"
-"let g:golang_gopath= "/Users/caijianfeng/go"
-
+let g:golang_goroot = "/opt/apps/go"
+let g:golang_gopath= "/Users/caijianfeng/go"
 
 
 """"""""""""""""""""""""""""""
@@ -25,7 +24,7 @@ au FileType python syn keyword pythonDecorator True None False self
 au BufNewFile,BufRead *.jinja set syntax=htmljinja
 au BufNewFile,BufRead *.mako set ft=mako
 
-"au FileType python map <buffer> F :set foldmethod=indent<cr>
+au FileType python map <buffer> F :set foldmethod=indent<cr>
 
 au FileType python inoremap <buffer> $r return 
 au FileType python inoremap <buffer> $i import 
@@ -44,7 +43,7 @@ au FileType javascript call JavaScriptFold()
 au FileType javascript setl fen
 au FileType javascript setl nocindent
 
-au FileType javascript imap <c-t> AJS.log();<esc>hi
+au FileType javascript imap <c-t> $log();<esc>hi
 au FileType javascript imap <c-a> alert();<esc>hi
 
 au FileType javascript inoremap <buffer> $r return 
@@ -71,18 +70,4 @@ function! CoffeeScriptFold()
 endfunction
 au FileType coffee call CoffeeScriptFold()
 
-
-""""""""""""""""""""""""""""""
-" => Dash section
-"""""""""""""""""""""""""""""""
-let g:dash_map = {
-        \ 'go'       : 'go',
-        \ 'ruby'       : 'rails',
-        \ 'python'     : 'python2',
-        \ 'javascript' : 'backbone'
-        \ }
-:nmap <silent> <leader>d <Plug>DashSearch
-
-
-
-
+au FileType gitcommit call setpos('.', [0, 1, 1, 0])
